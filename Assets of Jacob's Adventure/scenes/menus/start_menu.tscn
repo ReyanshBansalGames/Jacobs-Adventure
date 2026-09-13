@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dovmvndnnibbf"]
+
+[ext_resource type="Script" uid="uid://dea2brkumrxc4" path="res://Assets of Jacob's Adventure/Scripts/start_menu.gd" id="1_afwmg"]
+[ext_resource type="FontFile" uid="uid://daylnqfcfdkpw" path="res://Assets of Jacob's Adventure/Fonts/Kenney Blocks.ttf" id="1_ocutn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_afwmg"]
+font = ExtResource("1_ocutn")
+font_size = 60
+shadow_size = 5
+shadow_color = Color(1, 1, 1, 0.23529412)
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcts2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 10
+
+[node name="StartMenu" type="Control" unique_id=1694744199]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_afwmg")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1083906971]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=2045938816]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29166666
+anchor_right = 0.7083333
+anchor_bottom = 0.09259259
+offset_top = 20.0
+grow_horizontal = 2
+text = "Jacob's Adventure"
+label_settings = SubResource("LabelSettings_afwmg")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=119009595]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -64.0
+offset_right = 180.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="StartButton" type="Button" parent="Buttons" unique_id=1460060511]
+custom_minimum_size = Vector2(360, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 4
+theme_override_fonts/font = ExtResource("1_ocutn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcts2")
+text = "Start"
+
+[node name="QuitButton(PC)" type="Button" parent="Buttons" unique_id=1094393577]
+custom_minimum_size = Vector2(360, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 4
+theme_override_fonts/font = ExtResource("1_ocutn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcts2")
+text = "Quit (PC)"
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton(PC)" to="." method="_on_quit_button_pressed"]
