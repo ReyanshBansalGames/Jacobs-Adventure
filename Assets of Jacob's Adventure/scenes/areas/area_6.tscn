@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://d3p8lwpsawwbj"]
+
+[ext_resource type="Script" uid="uid://mgfmv11l2jyc" path="res://Assets of Jacob's Adventure/Scripts/CreditsMenu.gd" id="1_akk5h"]
+[ext_resource type="FontFile" uid="uid://daylnqfcfdkpw" path="res://Assets of Jacob's Adventure/Fonts/Kenney Blocks.ttf" id="2_emmq7"]
+[ext_resource type="AudioStream" uid="uid://bxa25no3lbn6a" path="res://Assets of Jacob's Adventure/Sounds/BGM/Credits BGM.ogg" id="3_1yreo"]
+[ext_resource type="Texture2D" uid="uid://ln3no4kofmnl" path="res://Assets of Jacob's Adventure/Sprites/Exit Button.png" id="4_fd7vc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1n2e"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_80yxk"]
+resource_name = "Credits Animation"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(230, 800), Vector2(230, -1500)]
+}
+
+[sub_resource type="Animation" id="Animation_akk5h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(230, 800)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_emmq7"]
+_data = {
+&"Credits Animation": SubResource("Animation_80yxk"),
+&"RESET": SubResource("Animation_akk5h")
+}
+
+[node name="Credits" type="Control" unique_id=407063643]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_akk5h")
+
+[node name="BG" type="Panel" parent="." unique_id=1451845080]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c1n2e")
+
+[node name="Text" type="RichTextLabel" parent="." unique_id=1057127805]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = 476.0
+offset_right = 354.0
+offset_bottom = 1976.0002
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_emmq7")
+theme_override_fonts/bold_font = ExtResource("2_emmq7")
+theme_override_fonts/italics_font = ExtResource("2_emmq7")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 26
+theme_override_font_sizes/italics_font_size = 22
+bbcode_enabled = true
+text = "[center]
+[font_size=60]THE END[/font_size]
+
+[font_size=40]Level Designing[/font_size]
+[font_size=30]Reyansh Bansal[/font_size]
+
+[font_size=40]Audio[/font_size]
+[font_size=30]PixBay[/font_size]
+
+[font_size=40]Programming[/font_size]
+[font_size=30]Reyansh Bansal[/font_size]
+
+[font_size=40]Graphics[/font_size]
+[font_size=30]Reyansh Bansal[/font_size]
+[font_size=30]PaperMouseGames[/font_size]
+
+[font_size=40]Fonts[/font_size]
+[font_size=30]PaperMouseGams[/font_size]
+
+[font_size=40]Playtesting[/font_size]
+[font_size=30]Reyansh Bansal[/font_size]
+[font_size=30]Ritik Bansal[/font_size]
+
+[font_size=40]Special Thanks![/font_size]
+[font_size=30]PaperMouseGames - Tutor[/font_size]
+[font_size=30]ChatGPT - Assistant[/font_size]
+
+[font_size=60]THANKS FOR PLAYING[/font_size]
+[font_size=30]Jacob's Adventure 1.0[/font_size]
+[/center]
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1122722390]
+libraries/ = SubResource("AnimationLibrary_emmq7")
+autoplay = &"Credits Animation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1831272663]
+stream = ExtResource("3_1yreo")
+volume_db = 20.0
+autoplay = true
+
+[node name="CrossSlot" type="Control" parent="." unique_id=1647203819]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -142.0
+offset_top = 40.0
+offset_right = -52.0
+offset_bottom = 130.0
+grow_horizontal = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CrossSlot" unique_id=1433705350]
+texture_normal = ExtResource("4_fd7vc")
+texture_pressed = ExtResource("4_fd7vc")
+action = "GoToStartMenu"
