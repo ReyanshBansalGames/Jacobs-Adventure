@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://brrapopo8ubr2"]
+
+[ext_resource type="Script" uid="uid://bitls5eokb872" path="res://Assets of Jacob's Adventure/Scripts/area_exit.gd" id="1_m8k7c"]
+[ext_resource type="Texture2D" uid="uid://b127qntj015y0" path="res://Assets of Jacob's Adventure/Sprites/portal.png" id="2_m8k7c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xuwha"]
+radius = 27.0
+height = 80.0
+
+[node name="AreaExit" type="Area2D" unique_id=604478753]
+script = ExtResource("1_m8k7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=652527562]
+position = Vector2(13, -34.124992)
+scale = Vector2(3.2727273, 4.443182)
+texture = ExtResource("2_m8k7c")
+region_enabled = true
+region_rect = Rect2(22, 0, 22, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823698845]
+position = Vector2(13, -36)
+shape = SubResource("CapsuleShape2D_xuwha")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://gbkmsdu3a3fv"]
+
+[ext_resource type="Texture2D" uid="uid://ciftgtnjgfgqc" path="res://Assets of Jacob's Adventure/Sprites/Checkpoint.png" id="1_chic5"]
+[ext_resource type="Script" uid="uid://dtejpvyi6slfx" path="res://Assets of Jacob's Adventure/Scripts/checkpoint.gd" id="1_db2qe"]
+[ext_resource type="AudioStream" uid="uid://bto3ipby5n3ck" path="res://Assets of Jacob's Adventure/Sounds/SFX/Checkpoint SFX.wav" id="3_duxbc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db2qe"]
+size = Vector2(30, 30)
+
+[node name="Checkpoint" type="Area2D" unique_id=875716740]
+script = ExtResource("1_db2qe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2068008430]
+position = Vector2(2, -4)
+shape = SubResource("RectangleShape2D_db2qe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1737926313]
+position = Vector2(10.5, -16)
+scale = Vector2(1.525, 1.8000001)
+texture = ExtResource("1_chic5")
+
+[node name="Checkpoint SFX" type="AudioStreamPlayer" parent="." unique_id=1665304797]
+stream = ExtResource("3_duxbc")
+pitch_scale = 1.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

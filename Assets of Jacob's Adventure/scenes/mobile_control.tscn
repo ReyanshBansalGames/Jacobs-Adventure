@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dp3o6ym4rqt7d"]
+
+[ext_resource type="Texture2D" uid="uid://dry4yyvlpbfsw" path="res://Assets of Jacob's Adventure/Sprites/Left Button.png" id="1_7tn35"]
+[ext_resource type="Texture2D" uid="uid://dipbhk0icsowo" path="res://Assets of Jacob's Adventure/Sprites/Right Button.png" id="2_7tn35"]
+[ext_resource type="Texture2D" uid="uid://dh106sx4c54vm" path="res://Assets of Jacob's Adventure/Sprites/Jump button.png" id="2_s5f4b"]
+[ext_resource type="Texture2D" uid="uid://ln3no4kofmnl" path="res://Assets of Jacob's Adventure/Sprites/Exit Button.png" id="3_cyrpn"]
+
+[node name="MobileControl" type="Control" unique_id=41655302]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlsLayer" type="CanvasLayer" parent="." unique_id=333003730]
+
+[node name="Controls" type="Control" parent="ControlsLayer" unique_id=1082168354]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MovementControls" type="HBoxContainer" parent="ControlsLayer/Controls" unique_id=55371034]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -178.0
+offset_right = 383.0
+offset_bottom = -45.0
+grow_vertical = 0
+theme_override_constants/separation = 180
+
+[node name="LeftSlot" type="Control" parent="ControlsLayer/Controls/MovementControls" unique_id=9942934]
+layout_mode = 2
+
+[node name="LeftButton" type="TouchScreenButton" parent="ControlsLayer/Controls/MovementControls/LeftSlot" unique_id=1319114265]
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("1_7tn35")
+texture_pressed = ExtResource("1_7tn35")
+action = "Move_Left"
+
+[node name="RightSlot" type="Control" parent="ControlsLayer/Controls/MovementControls" unique_id=658154933]
+layout_mode = 2
+
+[node name="RightButton" type="TouchScreenButton" parent="ControlsLayer/Controls/MovementControls/RightSlot" unique_id=725307656]
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_7tn35")
+texture_pressed = ExtResource("2_7tn35")
+action = "Move_Right"
+
+[node name="JumpSlot" type="Control" parent="ControlsLayer/Controls" unique_id=472460392]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -182.0
+offset_top = -168.0
+offset_right = -47.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="JumpButton" type="TouchScreenButton" parent="ControlsLayer/Controls/JumpSlot" unique_id=1953983234]
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_s5f4b")
+texture_pressed = ExtResource("2_s5f4b")
+action = "Jump"
+
+[node name="CrossSlot" type="Control" parent="ControlsLayer/Controls" unique_id=786271446]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -182.0
+offset_top = 40.0
+offset_right = -47.0
+offset_bottom = 175.0
+grow_horizontal = 0
+
+[node name="CrossButton" type="TouchScreenButton" parent="ControlsLayer/Controls/CrossSlot" unique_id=242811776]
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("3_cyrpn")
+texture_pressed = ExtResource("3_cyrpn")
+action = "GoToStartMenu"

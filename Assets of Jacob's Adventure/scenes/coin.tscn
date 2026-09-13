@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c87d6hcp4glh3"]
+
+[ext_resource type="Script" uid="uid://6383lu2kxcr0" path="res://Assets of Jacob's Adventure/Scripts/coin.gd" id="1_u42bt"]
+[ext_resource type="Texture2D" uid="uid://e536al68djd1" path="res://Assets of Jacob's Adventure/Sprites/Coin.png" id="2_s4ul3"]
+[ext_resource type="AudioStream" uid="uid://de1taqw3s7byy" path="res://Assets of Jacob's Adventure/Sounds/SFX/Coin Collect SFX.wav" id="3_s4ul3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnvt3"]
+radius = 14.3178215
+
+[node name="Coin" type="Area2D" unique_id=504092794]
+script = ExtResource("1_u42bt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1778287817]
+position = Vector2(2.3841858e-07, -2.3841858e-07)
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("2_s4ul3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603226556]
+shape = SubResource("CircleShape2D_qnvt3")
+
+[node name="Coin Collect SFX" type="AudioStreamPlayer" parent="." unique_id=1905459586]
+stream = ExtResource("3_s4ul3")
+volume_db = 6.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
